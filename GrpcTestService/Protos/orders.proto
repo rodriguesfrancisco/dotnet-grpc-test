@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcTestService";
+
+package orders;
+
+service OrderProcessing {
+  rpc GetOrders (GetOrdersRequest) returns (GetOrdersResponse);
+}
+
+message GetOrdersRequest { }
+
+message GetOrdersResponse {
+  repeated Order orders = 1;
+}
+
+message Order {
+	string id = 1;
+	string ticker = 2;
+	double price = 3;
+	int32 quantity = 4;
+	double total = 5;
+	string client_id = 6;
+	string client_name = 7;
+}
